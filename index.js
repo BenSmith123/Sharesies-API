@@ -4,47 +4,80 @@ const axios = require('axios');
 const { ENDPOINTS } = require('./config');
 
 
-// main - test these functions!
-(async () => {
+let cookie = null;
+// let user = null;
+const userId = null;
 
-})();
+
+function checkCookie() {
+	if (!cookie) { throw new Error('No cookie set, you must authenticate first'); }
+}
 
 
-async function authenticate(email, password) {
+/**
+ * Returns the authentication cookie
+ *
+ * @param {string} email
+ * @param {string} password
+ */
+async function authenticate({ email, password }) {
+
+	if (!email || !password) { throw new Error('No email or password provided.'); }
 
 	const req = {
-		url: ENDPOINTS.AUTH,
+		url: ENDPOINTS.LOGIN,
 		method: 'post',
-		body: JSON.stringify({ email, password }),
-		headers: { 'Content-Type': 'application/json' },
+		data: JSON.stringify({ email, password }),
+		headers: {
+			'Content-Type': 'application/json'
+		}
 	};
 
 	try {
 		const res = await axios(req);
 
+		// TODO - validate successful login
+
+		cookie = res.headers['set-cookie'][1]; // TODO - why this header (in browser it looks like a different value is sent)
+		// user = res.data.user; // TODO - need to store this?
+		// userId = res.data.user.id;
+
+		return res;
+
 
 	} catch (err) {
 		// TODO
+		console.error(err);
+
 	}
 
 }
 
 
+async function check() {
+
+	checkCookie();
+
+	const req = {
+		url: ENDPOINTS.CHECK,
+		headers: {
+			cookie
+		}
+	};
+
+	try {
+		const res = await axios(req);
+
+		console.log(res);
+
+		return res;
+	} catch (err) {
+		console.error(err);
+	}
+}
+
+
 module.exports = {
 	authenticate,
+	check
 };
-
-/*
-  async function authenticate2({ email, password }) {
-    const response = await fetch(AUTH_URL, {
-      method: "post",
-      body: JSON.stringify({ email, password }),
-      headers: { "Content-Type": "application/json" },
-    });
-    this.#cookie = response.headers.raw()["set-cookie"][1];
-    this.user = (await response.json()).user;
-    console.log(this.#cookie);
-    if (this.user.email !== email) throw new Error("Incorrect login details");
-    return this.user;
-  }
-  */
