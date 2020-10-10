@@ -20,6 +20,10 @@
                 "max": 2
             }
         ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
         "indent": [
             "error",
             "tab"
