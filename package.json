@@ -4,8 +4,7 @@
   "description": "Sharesies API",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test"
   },
   "dependencies": {
     "axios": "^0.20.0"
