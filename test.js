@@ -1,7 +1,7 @@
 
 require('dotenv').config();
 
-const sharesies = require('./index');
+const sharesies = require('./src/index');
 // const sharesies = require('sharesies'); <-- for published npm package
 
 (async () => {

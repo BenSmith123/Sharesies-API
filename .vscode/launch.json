@@ -5,7 +5,7 @@
             "type": "node",
             "request": "launch",
             "name": "node test",
-            "program": "${workspaceFolder}/test",
+            "program": "${workspaceFolder}/src/test",
         }
     ]
 }
