@@ -1,0 +1,19 @@
+{
+  "name": "sharesies",
+  "version": "0.0.0",
+  "description": "Sharesies API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ben Smith",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {
+    "axios": "^0.20.0"
+  }
+}
