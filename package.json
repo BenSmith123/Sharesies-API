@@ -15,6 +15,10 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BenSmith123/Sharesies-API"
+  },
   "author": "Ben Smith",
   "license": "ISC"
 }

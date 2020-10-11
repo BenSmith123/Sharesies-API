@@ -1,3 +1,6 @@
+
 node_modules
 
+# ignored because they contain sensitive data
 .env
+api-response-examples 
